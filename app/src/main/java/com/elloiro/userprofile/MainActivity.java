@@ -12,6 +12,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         followers.setText(profile.getFollowers());
         about.setText(profile.getAbout());
 
-        Glide.with(this).load("file:///android_asset/profileImage.jpg").into(profileImage);
+        Glide.with(this).load("file:///android_asset/profileImage.jpg").apply(RequestOptions.circleCropTransform()).into(profileImage);
         Glide.with(this).load("file:///android_asset/backgroundImage.jpg").into(background);
     }
 }
